@@ -1,50 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Area = ({ activeArea, clickHandler }) => {
+const Area = ({ name, activeArea, clickHandler }) => {
 
-  const areasList = [
-    'American',
-    'British',
-    'Canadian',
-    'Chinese',
-    'Dutch',
-    'Egyptian',
-    'French',
-    'Greek',
-    'Indian',
-    'Irish',
-    'Italian',
-    'Jamaican',
-    'Japanese',
-    'Kenyan',
-    'Malaysian',
-    'Mexican',
-    'Moroccan',
-    'Polish',
-    'Russian',
-    'Spanish',
-    'Thai',
-    'Tunisian',
-    'Turkish',
-    'Unknown',
-    'Vietnamese',
-  ];
-  
-  const handleClick = ({ target }) => {
-    clickHandler(target.value);
+  const handleClick = name => {
+    clickHandler(name);
   }
 
   return (
-    <ol name="area" onClick={handleClick}>
-      {areasList.map(area => (
-        <li value={area} key={area}>{area}</li>
-      ))}
-    </ol>
+    <button type="button" name={name} onClick={() => handleClick(name)}>
+      {name}
+    </button>
   );
 }
 
 Area.propTypes = {
+  name: PropTypes.string.isRequired,
   clickHandler: PropTypes.func.isRequired,
   activeArea: PropTypes.bool,
 };
