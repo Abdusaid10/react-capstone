@@ -19,6 +19,7 @@ import { changeArea } from '../actions/filterAction';
 
 const MealsList = ({ meals, areaFilter, fetchMealsByArea, changeArea }) => {
   const areasList = [
+    'American',
     'British',
     'Canadian',
     'Chinese',
@@ -46,7 +47,8 @@ const MealsList = ({ meals, areaFilter, fetchMealsByArea, changeArea }) => {
   ];
   
   const [currentMeal, setCurrentMeal] = useState([]);
-  // const [currentArea, setCurrentArea] = useState([]);
+  let [active, setActive] = useState(false);
+  const [currentArea, setCurrentArea] = useState([]);
   // [area] = useState([]);
   const handleClick = meal => {
     alert(meal.strMeal);
@@ -59,9 +61,9 @@ const MealsList = ({ meals, areaFilter, fetchMealsByArea, changeArea }) => {
   // };
 
   // useEffect(() => {
-  //   fetchMealsByArea(area);
+  //   fetchMealsByArea(currentArea);
   //   // onChangeArea(currentArea);
-  // }, [area, fetchMealsByArea]);
+  // }, [currentArea, fetchMealsByArea]);
 
   return (
     <div className="container">
@@ -72,7 +74,12 @@ const MealsList = ({ meals, areaFilter, fetchMealsByArea, changeArea }) => {
           {areasList.map(area => (
             <Area key={area} name={area} clickHandlerArea={(area) => {
               changeArea(area);
-              // setCurrentArea(area);
+              if (setActive(active)) {
+                setActive(!active);
+              } else {
+                setActive(active);
+              }
+              setCurrentArea(area);
               fetchMealsByArea(area);
               }} />
           ))}
@@ -80,7 +87,7 @@ const MealsList = ({ meals, areaFilter, fetchMealsByArea, changeArea }) => {
       <div className="meals-container">
           {meals
             .map((meal) => (
-              <Meal meal={meal} clickHandler={() => handleClick(meal)} />
+              <Meal key={meal} meal={meal} clickHandler={() => handleClick(meal)} />
           ))}
       </div>
     </div>
@@ -105,7 +112,7 @@ MealsList.propTypes = {
     PropTypes.shape({
       strMeal: PropTypes.string.isRequired,
       strMealThumb: PropTypes.string.isRequired,
-      idMeal: PropTypes.number.isRequired,
+      idMeal: PropTypes.string.isRequired,
     }),
   ).isRequired,
   loading: PropTypes.bool,

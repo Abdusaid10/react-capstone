@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAILURE, CHANGE_AREA } from "./types";
+import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAILURE } from "./types";
 
 const fetchRequest = () => ({
   type: FETCH_REQUEST,

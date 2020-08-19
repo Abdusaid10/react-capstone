@@ -7,7 +7,7 @@ const Meal = ({ meal, clickHandler }) => {
   }
 
   return (
-    <div className="active-meal" onClick={() => handleClick(meal)}>
+    <div key={meal} className="active-meal" onClick={() => handleClick(meal)}>
       <h3 id="title">{meal.strMeal}</h3>
       <img src={meal.strMealThumb} alt={meal.strMeal} />
     </div>
@@ -16,7 +16,7 @@ const Meal = ({ meal, clickHandler }) => {
 
 Meal.propTypes = {
   meal: PropTypes.shape({
-    idMeal: PropTypes.number.isRequired,
+    idMeal: PropTypes.string.isRequired,
     strMeal: PropTypes.string.isRequired,
     strMealThumb: PropTypes.string.isRequired,
   }).isRequired,
