@@ -4,6 +4,7 @@ const initialState = {
   loading: false,
   meals: [],
   error: '',
+  area: 'American',
 };
 
 const fetchReducer = (state = initialState, action) => {
@@ -14,6 +15,7 @@ const fetchReducer = (state = initialState, action) => {
         loading: true,
       };
     case FETCH_SUCCESS:
+      console.log("payload",action.payload)
       return {
         ...state,
         loading: false,
