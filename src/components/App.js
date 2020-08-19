@@ -1,9 +1,12 @@
 import React from 'react';
 import AreasList from '../containers/areasList';
+import MealsList from '../containers/mealsList';
+// import {fetchMealsByArea} from '../api-services/services';
 
 const App = () => (
   <div>
-    <AreasList />
+    {/* <AreasList /> */}
+    <MealsList />
   </div>
 );
 

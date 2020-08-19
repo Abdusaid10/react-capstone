@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Area from '../components/Area';
+import MealsList from './mealsList';
+import {fetchMealsByArea} from '../actions/index';
 
-const AreasList = ({areas, clickHandler }) => {
+const AreasList = ({ clickHandler }) => {
   const areasList = [
     'American',
     'British',
@@ -32,16 +34,11 @@ const AreasList = ({areas, clickHandler }) => {
   ];
   
   const [currentArea, setCurrentArea] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(-1);
 
   const handleClick = area => {
-    alert(area);
     setCurrentArea(area);
   };
 
-  const setActiveArea = (area, index) => {
-    setCurrentArea(area, index);
-  }
 
   return (
     <div className="container">
@@ -50,7 +47,7 @@ const AreasList = ({areas, clickHandler }) => {
           Select an Area 
         </h3>
         {areasList.map((area, index) => (
-          <Area key={area} name={area} index={index} clickHandler={() => handleClick(area)} />
+          <Area key={area} area={area} index={index} clickHandler={() => handleClick(area)} />
         ))}
       </div>
       <div className="meals-container">
@@ -62,11 +59,6 @@ const AreasList = ({areas, clickHandler }) => {
 
 
 AreasList.propTypes = {
-  areas: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-    }),
-  ),
   clickHandler: PropTypes.func,
 }
 

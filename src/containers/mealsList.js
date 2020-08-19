@@ -1,73 +1,108 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Area from '../components/Area';
 import Meal from '../components/Meal';
+import Area from '../components/Area';
+import { fetchMealsByArea, fetchMealsByCategory, fetchMealsByIngredient } from '../actions/index';
+import { onChangeArea } from '../actions/filterAction';
+/* 
+  filters = filter {
+    if (filter == area ){
+      fetchByArea()
+    }
+    if(filter == category) {
+      fetchByCat
+    }
+  }
+  search by ingredient
+*/
 
-const MealsList = ({ meals, activeMeal, clickHandler }) => {
+const MealsList = ({ meals, fetchMealsByArea, aFilter, onChangeArea }) => {
+  const areasList = [
+    'British',
+    'Canadian',
+    'Chinese',
+    'Dutch',
+    'Egyptian',
+    'French',
+    'Greek',
+    'Indian',
+    'Irish',
+    'Italian',
+    'Jamaican',
+    'Japanese',
+    'Kenyan',
+    'Malaysian',
+    'Mexican',
+    'Moroccan',
+    'Polish',
+    'Russian',
+    'Spanish',
+    'Thai',
+    'Tunisian',
+    'Turkish',
+    'Unknown',
+    'Vietnamese',
+  ];
+  const [currentMeal, setCurrentMeal] = useState([]);
+  // const [currentArea, setCurrentArea] = useState([]);
+
+  const handleClick = meal => {
+    alert(meal.strMeal);
+    setCurrentMeal(meal.strMeal);
+  };
+  
+  // const handleClickArea = area => {
+  //   setCurrentArea(area);
+  //   onChangeArea(area);
+  // };
+
+  useEffect(() => {
+    fetchMealsByArea(currentArea);
+    // onChangeArea(currentArea);
+  }, []);
+
   return (
-    <div>
-
+    <div className="container">
+      <Area areaFilter={filter => onChangeArea(filter)} />
+      <div className="meals-container">
+          {meals
+            .map((meal) => (
+              <Meal meal={meal} clickHandler={() => handleClick(meal)} />
+          ))}
+      </div>
     </div>
-  )
-}
+  );
+};
+
+const mapStateToProps = state => ({
+  meals: state.mealsList.meals,
+  aFilter: state.aFilter,
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchMealsByArea: aFilter => dispatch(fetchMealsByArea(aFilter)),
+  onChangeArea: () => dispatch(onChangeArea()),
+})
+
 
 MealsList.propTypes = {
   meals: PropTypes.arrayOf(
     PropTypes.shape({
       strMeal: PropTypes.string.isRequired,
-      strCategory: PropTypes.string.isRequired,
-      strArea: PropTypes.string.isRequired,
-      strInstructions: PropTypes.string.isRequired,
       strMealThumb: PropTypes.string.isRequired,
-      strYoutube: PropTypes.string.isRequired,
-      strIngredient1: PropTypes.string,
-      strIngredient2: PropTypes.string,
-      strIngredient3: PropTypes.string,
-      strIngredient4: PropTypes.string,
-      strIngredient5: PropTypes.string,
-      strIngredient6: PropTypes.string,
-      strIngredient7: PropTypes.string,
-      strIngredient8: PropTypes.string,
-      strIngredient9: PropTypes.string,
-      strIngredient10: PropTypes.string,
-      strIngredient11: PropTypes.string,
-      strIngredient12: PropTypes.string,
-      strIngredient13: PropTypes.string,
-      strIngredient14: PropTypes.string,
-      strIngredient15: PropTypes.string,
-      strIngredient16: PropTypes.string,
-      strIngredient17: PropTypes.string,
-      strIngredient18: PropTypes.string,
-      strIngredient19: PropTypes.string,
-      strIngredient20: PropTypes.string,
-      strMeasure1: PropTypes.string,
-      strMeasure2: PropTypes.string,
-      strMeasure3: PropTypes.string,
-      strMeasure4: PropTypes.string,
-      strMeasure5: PropTypes.string,
-      strMeasure6: PropTypes.string,
-      strMeasure7: PropTypes.string,
-      strMeasure8: PropTypes.string,
-      strMeasure9: PropTypes.string,
-      strMeasure10: PropTypes.string,
-      strMeasure11: PropTypes.string,
-      strMeasure12: PropTypes.string,
-      strMeasure13: PropTypes.string,
-      strMeasure14: PropTypes.string,
-      strMeasure15: PropTypes.string,
-      strMeasure16: PropTypes.string,
-      strMeasure17: PropTypes.string,
-      strMeasure18: PropTypes.string,
-      strMeasure19: PropTypes.string,
-      strMeasure20: PropTypes.string,
+      idMeal: PropTypes.number.isRequired,
     }),
-  ).PropTypes.isRequired,
+  ).isRequired,
   activeMeal: PropTypes.bool,
-  clickHandler: PropTypes.func.isRequired,
+  aFilter: PropTypes.string,
+  clickHandler: PropTypes.func,
+  fetchMealsByArea: PropTypes.func,
+  onChangeArea: PropTypes.func,
 };
 
 MealsList.defaultProps = {
   activeMeal: false,
 };
 
-export default MealsList;
+export default connect(mapStateToProps, mapDispatchToProps)(MealsList);
