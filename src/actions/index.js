@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAILURE } from "./types";
+import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAILURE, CHANGE_AREA } from "./types";
 
 const fetchRequest = () => ({
   type: FETCH_REQUEST,
@@ -14,6 +14,11 @@ const fetchFailure = error => ({
   type: FETCH_FAILURE,
   payload: error,
 });
+
+// const changeArea = area => ({
+//   type: CHANGE_AREA,
+//   area,
+// });
 
 const base_url = 'https://www.themealdb.com/api/json/v1/1/filter.php?';
 

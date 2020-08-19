@@ -1,4 +1,4 @@
-import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAILURE } from "../actions/types";
+import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAILURE, /* CHANGE_AREA */} from "../actions/types";
 
 const initialState = {
   loading: false,
@@ -21,6 +21,7 @@ const fetchReducer = (state = initialState, action) => {
         loading: false,
         meals: action.payload,
         error: '',
+        area: action.area,
       };
     case FETCH_FAILURE:
       return {
@@ -28,6 +29,14 @@ const fetchReducer = (state = initialState, action) => {
         meals: [],
         error: action.payload,
       };
+    // case CHANGE_AREA:
+    //   return {
+    //     ...state,
+    //     loading: false,
+    //     meals: action.payload,
+    //     error: '',
+    //     area: action.area,
+    //   }
     default:
       return state;
   }

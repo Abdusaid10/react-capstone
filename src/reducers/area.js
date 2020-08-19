@@ -1,4 +1,4 @@
-import { CHANGE_AREA} from "../actions/types";
+import { CHANGE_AREA } from "../actions/types";
 
 const changeAreaReducer = (state = 'American', action) => {
   switch (action.type) {

@@ -4,7 +4,7 @@ import changeAreaReducer from './area';
 
 const reducer = combineReducers({
   mealsList: fetchReducer,
-  aFilter: changeAreaReducer,
+  areaFilter: changeAreaReducer,
 });
 
 export default reducer;
