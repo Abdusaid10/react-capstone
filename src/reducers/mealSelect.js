@@ -1,4 +1,4 @@
-import { SELECT_MEAL } from '../actions/types';
+import { SELECT_MEAL, } from '../actions/types';
 
 const mealSelectReducer = (state = null, action) => {
   switch (action.type) {

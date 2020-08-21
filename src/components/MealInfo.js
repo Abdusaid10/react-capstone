@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { fetchMealByID } from '../actions/index';
+import { withRouter } from 'react-router-dom';
 
 const MealInfo = ({meal}) => {
 

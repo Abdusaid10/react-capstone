@@ -1,8 +1,11 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import MealsList from '../containers/mealsList';
 const App = () => (
   <div>
-    <MealsList />
+    {/* <Router> */}
+      <MealsList />
+    {/* </Router> */}
   </div>
 );
 
