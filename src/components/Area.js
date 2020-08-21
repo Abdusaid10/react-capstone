@@ -8,9 +8,7 @@ const Area = ({ name, clickHandlerArea }) => {
   }
 
   return (
-    <div className="areas-container">
-      <button key={name} type="button" name={name} onClick={() => handleClickArea(name)}>{name}</button>
-    </div>
+    <button key={name} type="button" name={name} onClick={() => handleClickArea(name)}>{name}</button>
   );
 }
 

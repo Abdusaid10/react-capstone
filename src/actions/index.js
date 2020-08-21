@@ -20,10 +20,10 @@ const fetchFailure = error => ({
 //   area,
 // });
 
-const base_url = 'https://www.themealdb.com/api/json/v1/1/filter.php?';
+const base_url = 'https://www.themealdb.com/api/json/v1/1/';
 
 const fetchMealsByArea = (area) => dispatch =>{
-  const url = `${base_url}a=${area}`;
+  const url = `${base_url}filter.php?a=${area}`;
  
   dispatch(fetchRequest());
   axios.get(url)
@@ -37,7 +37,7 @@ const fetchMealsByArea = (area) => dispatch =>{
 }
 
 const fetchMealsByCategory = category => dispatch => {
-  const url = `${base_url}c=${category}`;
+  const url = `${base_url}filter.php?c=${category}`;
   dispatch(fetchRequest());
   axios.get(url)
     .then((response) => {
@@ -49,8 +49,8 @@ const fetchMealsByCategory = category => dispatch => {
     })
 }
 
-const fetchMealsByIndgredient = ingredient => dispatch => {
-  const url = `${base_url}c=${ingredient}`;
+const fetchMealByID = id => dispatch => {
+  const url = `${base_url}lookup.php?i=${id}`;
   dispatch(fetchRequest());
   axios.get(url)
     .then((response) => {
@@ -68,5 +68,5 @@ export {
   fetchFailure,
   fetchMealsByArea,
   fetchMealsByCategory,
-  fetchMealsByIndgredient,
+  fetchMealByID,
 }

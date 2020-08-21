@@ -5,6 +5,8 @@ import store from './reducers/store';
 import './assets/styles/index.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
+import './assets/styles/reset.css';
+import './assets/styles/index.css';
 
 ReactDOM.render(
   <Provider store={store}>
