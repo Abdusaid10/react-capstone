@@ -14,7 +14,6 @@ const fetchReducer = (state = initialState, action) => {
         loading: true,
       };
     case FETCH_SUCCESS:
-      console.log("payload",action.payload)
       return {
         ...state,
         loading: false,

@@ -25,7 +25,7 @@ const fetchMealByID = id => dispatch => {
   dispatch(fetchRequest());
   axios.get(url)
     .then((response) => {
-      console.log("response",response.data);
+      console.log("response meal info",response.data.meals);
       dispatch(fetchSuccess(response.data.meals));
     })
     .catch( (error) => {

@@ -21,7 +21,6 @@ const fetchMealsByArea = (area) => dispatch =>{
   dispatch(fetchRequest());
   axios.get(url)
     .then((response) => {
-      console.log("response",response.data);
       dispatch(fetchSuccess(response.data.meals));
     })
     .catch( (error) => {

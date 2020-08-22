@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Switch, Route, withRouter, Router } from 'react-router-dom';
+import { Link, Switch, Route, Router } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Meal from '../components/Meal';
@@ -41,30 +41,23 @@ const MealsList = ({ meals, areaFilter, fetchMealsByArea, fetchMealByID, changeA
     'Vietnamese',
   ];
   
-  const [currentMeal, setCurrentMeal] = useState([]);
-  let [active, setActive] = useState(false);
-  const [currentArea, setCurrentArea] = useState([]);
+  // const [currentArea, setCurrentArea] = useState([]);
 
-  // [area] = useState([]);
   const handleClick = meal => {
-    // alert(meal.strMeal);
     selectMeal(meal.idMeal)
     fetchMealByID(parseInt(meal.idMeal, 10));
-    // renderInfo(meal);
   };
   
   const handleClickArea = area => {
     changeArea(area);
-    setCurrentArea(area);
+    // setCurrentArea(area);
     fetchMealsByArea(area);
   };
 
   useEffect(() => {
     fetchMealsByArea(areaFilter);
-    // onChangeArea(currentArea);
-    // fetchMealByID(parseInt(currentMeal.idMeal, 10));
   }, [areaFilter, fetchMealsByArea]);
-  // fetchMealsByArea(areaFilter);
+  
   return (
     <div className="container">
       <Router history={customHistory}>
@@ -80,38 +73,23 @@ const MealsList = ({ meals, areaFilter, fetchMealsByArea, fetchMealByID, changeA
             ))}
           </div>
         </div>
-        {/* <div className="meals-container">
-          {meals
-            .map((meal, index) => (
-              <Link key={index} to={`/${areaFilter}/id=${parseInt(meal.idMeal, 10)}`}> */}
-                {/* <span onClick={() => handleClick(meal)}>{meal.strMeal}</span>
-                <img onClick={() => handleClick(meal)} src={`${meal.strMealThumb}`} alt={`${meal.strMeal}`} /> */}
-                {/* <Meal key={index} meal={meal} clickHandler={() => handleClick(meal)} />
-              </Link>
-          ))}
-        </div> */}
+        
         <Switch>
-          {console.log("current meal", currentMeal)}
-          <Route exact path={"/"} component={Area}></Route>
-          <Route exact={true} path={`/${areaFilter}`}>
-            {meals
-              .map((meal, index) => (
-                <Link key={index} to={`/${areaFilter}/id=${parseInt(meal.idMeal, 10)}`}>
-                  {/* <span onClick={() => handleClick(meal)}>{meal.strMeal}</span>
-                  <img onClick={() => handleClick(meal)} src={`${meal.strMealThumb}`} alt={`${meal.strMeal}`} /> */}
-                  <Meal key={index} meal={meal} clickHandler={() => handleClick(meal)} />
-                </Link>
-                ))
+          <div className="meals-container">
+            <Route exact path={`/${areaFilter}`}>
+              {meals
+                .map((meal, index) => (
+                  <Link key={index} to={`/${areaFilter}/id=${parseInt(meal.idMeal, 10)}`}>
+                    <Meal key={index} meal={meal} clickHandler={() => handleClick(meal)} />
+                  </Link>
+                  ))
+              }
+            </Route>
+          </div>
+            { fetchMealInfo.map(meal => (
+                <MealInfo key={meal} meal={meal} />
+              ))
             }
-          </Route>
-          <Route exact={true} path={`/${areaFilter}/id=${parseInt(mealSelected, 10)}`}>
-            { fetchMealInfo
-              .map(meal => (<MealInfo key={meal} meal={meal}/>))
-            }
-          </Route> 
-          {/* fetchMealInfo.map(meal => <Meal key={meal} meal={meal} />) */}
-          
-          
         </Switch>
       </Router>
     </div>
@@ -190,7 +168,7 @@ MealsList.propTypes = {
       strMeasure18: PropTypes.string,
       strMeasure19: PropTypes.string,
       strMeasure20: PropTypes.string,
-    }),
+    })
   ).isRequired,
   loading: PropTypes.bool,
   error: PropTypes.string,
