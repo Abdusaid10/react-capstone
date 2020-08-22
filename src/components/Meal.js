@@ -9,11 +9,15 @@ const Meal = ({ meal, clickHandler }) => {
     clickHandler(meal);
   }
 
+  const style = {
+    width: '320px',
+    height: '240px',
+  }
   
   return (
     <div key="meal" className="meal" onClick={() => handleClick(meal)}>
-      <h3 id="title">this is working{meal.strMeal}</h3>
-      <img src={meal.strMealThumb} alt={meal.strMeal} />
+      <h3 id="title">{meal.strMeal}</h3>
+      <img src={meal.strMealThumb} alt={meal.strMeal} style={style} />
     </div>
   );
 };
@@ -25,12 +29,7 @@ Meal.propTypes = {
       strMealThumb: PropTypes.string.isRequired,
       idMeal: PropTypes.string.isRequired,
   }).isRequired,
-  activeMeal: PropTypes.bool,
-  // clickHandler: PropTypes.func.isRequired
+  clickHandler: PropTypes.func.isRequired
 };
 
-Meal.defaultProps = {
-  activeMeal: false,
-};
-
-export default Meal;
+export default withRouter(Meal);

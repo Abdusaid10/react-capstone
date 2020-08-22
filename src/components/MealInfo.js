@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
-
+import { withRouter } from "react-router-dom";
 const MealInfo = ({meal}) => {
-
+  const regex = /watch/gi;
+  
   return (
     <div className="meal-info">
     
@@ -11,7 +11,7 @@ const MealInfo = ({meal}) => {
       <span>{meal.strCategory}</span>
       <img src={meal.strMealThumb} alt={meal.strMeal} />
       <p>{meal.strInstructions}</p>
-      <iframe title={meal.strMeal} width="420" height="315" src={meal.strYoutube}></iframe>
+      <iframe title={meal.strMeal} width="420" height="315" src={meal.strYoutube.replace(regex, 'embed')}></iframe>
       <div id="ingredients-measure">
         <div className="ingredients">
           <span>{meal.strIngredient1}</span>
@@ -63,8 +63,7 @@ const MealInfo = ({meal}) => {
 }
 
 MealInfo.propTypes = ({
-  meal: PropTypes.arrayOf(
-    PropTypes.shape({
+  meal: PropTypes.shape({
       strMeal: PropTypes.string.isRequired,
       strCategory: PropTypes.string.isRequired,
       strArea: PropTypes.string,
@@ -111,8 +110,7 @@ MealInfo.propTypes = ({
       strMeasure18: PropTypes.string,
       strMeasure19: PropTypes.string,
       strMeasure20: PropTypes.string,
-    }),
-  ),
+    }).isRequired,
 });
 
-export default MealInfo;
+export default withRouter(MealInfo);

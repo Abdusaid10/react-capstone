@@ -14,7 +14,7 @@ code {
 
 .container {
   display: grid;
-  grid-template-columns: .2fr 1fr;
+  grid-template-columns: .2fr 1.8fr;
   margin: auto;
   padding: 20px;
 }
@@ -24,6 +24,23 @@ code {
   flex-direction: column;
 }
 .meals-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-between;
+  /* grid-auto-columns: 220px; */
+  margin: auto;
+}
+
+.meal {
+  display: block;
+  position: relative;
+  padding: 5px;
+  margin: 5px;
+}
+#title {
+  position: absolute;
+  bottom: 20px;
+  left: 30%;
+  word-wrap: break-word;
+  text-align:center;
 }
