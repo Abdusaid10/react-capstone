@@ -1,3 +1,0 @@
-const filters = filter => {
-  
-}
