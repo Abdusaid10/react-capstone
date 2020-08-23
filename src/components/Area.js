@@ -8,7 +8,7 @@ const Area = ({ name, clickHandlerArea }) => {
   }
 
   return (
-    <button key={name} type="button" name={name} onClick={() => handleClickArea(name)}>{name}</button>
+    <span key={name} name={name} onClick={() => handleClickArea(name)}>{name}</span>
   );
 }
 

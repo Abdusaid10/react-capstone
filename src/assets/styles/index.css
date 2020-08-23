@@ -17,6 +17,7 @@ code {
   grid-template-columns: .2fr 1.8fr;
   margin: auto;
   padding: 20px;
+  /* background-color: rgb(32, 255, 188); */
 }
 
 .area {
@@ -29,18 +30,43 @@ code {
   justify-content: space-between;
   /* grid-auto-columns: 220px; */
   margin: auto;
+  background-color: rgba(2, 250, 35, 0.575);
+  box-shadow: 5px 5px 8px 10px rgb(178, 190, 230);
+  border-radius: 10px 10px;
+  padding: 10px;
 }
 
 .meal {
   display: block;
   position: relative;
-  padding: 5px;
-  margin: 5px;
+  padding: 0;
+  margin: 0;
 }
 #title {
+  display: block;
+  color: whitesmoke;
+  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 25%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.35) 88.8%, rgba(0,0,0, 0.001) 100%);
   position: absolute;
-  bottom: 20px;
-  left: 30%;
+  /* top: 70%; */
+  bottom: 0;
+  width: 94%;
+  height: 50%;
   word-wrap: break-word;
-  text-align:center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -50px;
+  padding: 0 10px;
+  text-align: center;
+}
+#title h3 {
+  padding-top: 25px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.meal-info {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 10px;
 }

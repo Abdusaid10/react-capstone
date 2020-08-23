@@ -75,17 +75,19 @@ const MealsList = ({ meals, areaFilter, fetchMealsByArea, fetchMealByID, changeA
         </div>
         
         <Switch>
-          <div className="meals-container">
+          {/* <h2>{areaFilter}</h2> */}
+          
             <Route exact path={`/${areaFilter}`}>
-              {meals
-                .map((meal, index) => (
-                  <Link key={index} to={`/${areaFilter}/id=${parseInt(meal.idMeal, 10)}`}>
-                    <Meal key={index} meal={meal} clickHandler={() => handleClick(meal)} />
-                  </Link>
-                  ))
-              }
+              <div className="meals-container">
+                {meals
+                  .map((meal, index) => (
+                    <Link key={index} to={`/${areaFilter}/id=${parseInt(meal.idMeal, 10)}`}>
+                      <Meal key={index} meal={meal} clickHandler={() => handleClick(meal)} />
+                    </Link>
+                    ))
+                }
+              </div>
             </Route>
-          </div>
             { fetchMealInfo.map(meal => (
                 <MealInfo key={meal} meal={meal} />
               ))

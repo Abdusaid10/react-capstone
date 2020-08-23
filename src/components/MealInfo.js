@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 import { withRouter } from "react-router-dom";
 const MealInfo = ({meal}) => {
   const regex = /watch/gi;
-  
+  const style = {
+    width: '720px',
+    height: '420px'
+  }
   return (
     <div className="meal-info">
-    
       <h3>{meal.strMeal}</h3>
       <span>{meal.strCategory}</span>
-      <img src={meal.strMealThumb} alt={meal.strMeal} />
+      <img src={meal.strMealThumb} alt={meal.strMeal} style={style} />
       <p>{meal.strInstructions}</p>
       <iframe title={meal.strMeal} width="420" height="315" src={meal.strYoutube.replace(regex, 'embed')}></iframe>
       <div id="ingredients-measure">
