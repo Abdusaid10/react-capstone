@@ -5,35 +5,88 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100vw;
+  height: 100vh;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+a {
+  text-decoration: none;
+  color: white;
+}
 
-.container {
-  display: grid;
-  grid-template-columns: .2fr 1.8fr;
+.areas-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin: auto;
   padding: 20px;
-  /* background-color: rgb(32, 255, 188); */
+  /* background-color: rgb(202, 204, 203); */
+  color: #0290ff;
+  position: relative;
+  width: 100%;
+}
+
+.areas-container h3{
+  margin: 10px auto;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.areas {
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
 }
 
 .area {
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  padding: 10px;
+  margin: 10px;
+}
+
+.area span {
+  display: block;
+  max-width: 50vmin;
+  min-width: 25vmax;
+  padding: 15px;
+  position: absolute;
+  bottom: 0;
+  left: 50px;
+  /* background-color: #fff; */
+  color: #0290ff;
+  width: 100%;
+}
+
+#areaMap {
+  width: 320px;
+  height: 240px;
+  transition: transform .2s;
+}
+
+#areaMap:hover {
+  transform: scale(1.2);
+}
+
+
+.meals-container, .meal-info {
+  background-color: rgba(2, 250, 35, 0.575);
+  box-shadow: 5px 5px 5px 8px rgb(178, 190, 230);
+  border-radius: 10px 10px;
+  margin: auto;
+  padding: 10px;
 }
 .meals-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: space-between;
-  /* grid-auto-columns: 220px; */
-  margin: auto;
-  background-color: rgba(2, 250, 35, 0.575);
-  box-shadow: 5px 5px 8px 10px rgb(178, 190, 230);
-  border-radius: 10px 10px;
-  padding: 10px;
 }
 
 .meal {
@@ -47,7 +100,6 @@ code {
   color: whitesmoke;
   background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 25%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.35) 88.8%, rgba(0,0,0, 0.001) 100%);
   position: absolute;
-  /* top: 70%; */
   bottom: 0;
   width: 94%;
   height: 50%;
@@ -63,10 +115,38 @@ code {
   font-size: 18px;
   font-weight: bold;
 }
-
+.info-container {
+  margin: auto;
+  padding: 10px;
+}
 .meal-info {
   display: flex;
   flex-direction: column;
-  margin: auto;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+}
+
+#title-cat, #how-to-cook {
+  display: flex;
+  flex-direction: column;
+}
+
+#meal-cat {
+  color: #999;
+}
+#meal-title {
+  display: inline-block;
+  align-self: center;
+  font-weight: bold;
+  font-size: 32px;
   padding: 10px;
+  color: #0290ff;
+  background: whitesmoke;
+  width: 100%;
+}
+
+#how-to-cook h4 {
+  font-weight: bold;
+  font-size: 24px;
 }
