@@ -3,67 +3,80 @@ import PropTypes from 'prop-types';
 import { withRouter } from "react-router-dom";
 const MealInfo = ({meal}) => {
   const regex = /watch/gi;
-  const style = {
-    width: '720px',
-    height: '420px'
+
+
+  const addDash = (objVal) => {
+    if (objVal === '') {
+      objVal = '-';
+      return objVal;
+    }
+    else {
+      return objVal;
+    }
   }
+
   return (
     <div className="meal-info">
-      <div id="title-cat">
-        <h3 id="meal-title">{meal.strMeal}</h3>
-        <span id="meal-cat">Category: {meal.strCategory}</span>
-        <img id="meal-img" src={meal.strMealThumb} alt={meal.strMeal} style={style} />
+      <div id="title-cat-img">
+        <div id="title-cat">
+          <h3 id="meal-title">{meal.strMeal}</h3>
+          <span id="meal-cat">Category: {meal.strCategory}</span>
+        </div>
+        <img id="meal-img" src={meal.strMealThumb} alt={meal.strMeal} />
       </div>
       <div id="how-to-cook">
         <h4>How to cook</h4>
         <p id="instructions">{meal.strInstructions}</p>
+        <div id="ingredientsMeasure">
+          <span id="ingredientsText">Ingredients</span>
+          <div id="ingredientsWrapper" >
+            <div className="ingredients">
+              <span>{addDash(meal.strIngredient1)}</span>
+              <span>{addDash(meal.strIngredient2)}</span>
+              <span>{addDash(meal.strIngredient3)}</span>
+              <span>{addDash(meal.strIngredient4)}</span>
+              <span>{addDash(meal.strIngredient5)}</span>
+              <span>{addDash(meal.strIngredient6)}</span>
+              <span>{addDash(meal.strIngredient7)}</span>
+              <span>{addDash(meal.strIngredient8)}</span>
+              <span>{addDash(meal.strIngredient9)}</span>
+              <span>{addDash(meal.strIngredient10)}</span>
+              <span>{addDash(meal.strIngredient11)}</span>
+              <span>{addDash(meal.strIngredient12)}</span>
+              <span>{addDash(meal.strIngredient13)}</span>
+              <span>{addDash(meal.strIngredient14)}</span>
+              <span>{addDash(meal.strIngredient15)}</span>
+              <span>{addDash(meal.strIngredient16)}</span>
+              <span>{addDash(meal.strIngredient17)}</span>
+              <span>{addDash(meal.strIngredient18)}</span>
+              <span>{addDash(meal.strIngredient19)}</span>
+              <span>{addDash(meal.strIngredient20)}</span>
+            </div>
+            <div className="measure">
+              <span>{addDash(meal.strMeasure1)}</span>
+              <span>{addDash(meal.strMeasure2)}</span>
+              <span>{addDash(meal.strMeasure3)}</span>
+              <span>{addDash(meal.strMeasure4)}</span>
+              <span>{addDash(meal.strMeasure5)}</span>
+              <span>{addDash(meal.strMeasure6)}</span>
+              <span>{addDash(meal.strMeasure7)}</span>
+              <span>{addDash(meal.strMeasure8)}</span>
+              <span>{addDash(meal.strMeasure9)}</span>
+              <span>{addDash(meal.strMeasure10)}</span>
+              <span>{addDash(meal.strMeasure11)}</span>
+              <span>{addDash(meal.strMeasure12)}</span>
+              <span>{addDash(meal.strMeasure13)}</span>
+              <span>{addDash(meal.strMeasure14)}</span>
+              <span>{addDash(meal.strMeasure15)}</span>
+              <span>{addDash(meal.strMeasure16)}</span>
+              <span>{addDash(meal.strMeasure17)}</span>
+              <span>{addDash(meal.strMeasure18)}</span>
+              <span>{addDash(meal.strMeasure19)}</span>
+              <span>{addDash(meal.strMeasure20)}</span>
+            </div>
+          </div>          
+        </div>
         <iframe title={meal.strMeal} width="420" height="315" src={meal.strYoutube.replace(regex, 'embed')}></iframe>
-      </div>
-      <div id="ingredients-measure">
-        <div className="ingredients">
-          <span>{meal.strIngredient1}</span>
-          <span>{meal.strIngredient2}</span>
-          <span>{meal.strIngredient3}</span>
-          <span>{meal.strIngredient4}</span>
-          <span>{meal.strIngredient5}</span>
-          <span>{meal.strIngredient6}</span>
-          <span>{meal.strIngredient7}</span>
-          <span>{meal.strIngredient8}</span>
-          <span>{meal.strIngredient9}</span>
-          <span>{meal.strIngredient10}</span>
-          <span>{meal.strIngredient11}</span>
-          <span>{meal.strIngredient12}</span>
-          <span>{meal.strIngredient13}</span>
-          <span>{meal.strIngredient14}</span>
-          <span>{meal.strIngredient15}</span>
-          <span>{meal.strIngredient16}</span>
-          <span>{meal.strIngredient17}</span>
-          <span>{meal.strIngredient18}</span>
-          <span>{meal.strIngredient19}</span>
-          <span>{meal.strIngredient20}</span>
-        </div>
-        <div className="measure">
-          <span>{meal.strMeasure1}</span>
-          <span>{meal.strMeasure2}</span>
-          <span>{meal.strMeasure3}</span>
-          <span>{meal.strMeasure4}</span>
-          <span>{meal.strMeasure5}</span>
-          <span>{meal.strMeasure6}</span>
-          <span>{meal.strMeasure7}</span>
-          <span>{meal.strMeasure8}</span>
-          <span>{meal.strMeasure9}</span>
-          <span>{meal.strMeasure10}</span>
-          <span>{meal.strMeasure11}</span>
-          <span>{meal.strMeasure12}</span>
-          <span>{meal.strMeasure13}</span>
-          <span>{meal.strMeasure14}</span>
-          <span>{meal.strMeasure15}</span>
-          <span>{meal.strMeasure16}</span>
-          <span>{meal.strMeasure17}</span>
-          <span>{meal.strMeasure18}</span>
-          <span>{meal.strMeasure19}</span>
-          <span>{meal.strMeasure20}</span>
-        </div>
       </div>
     </div>
   )

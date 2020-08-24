@@ -16,7 +16,7 @@ code {
 
 a {
   text-decoration: none;
-  color: white;
+  color: red;
 }
 
 .areas-container {
@@ -73,7 +73,7 @@ a {
   transform: scale(1.2);
 }
 
-.meals-container, .meal-info {
+.meals-container {
   background-color: rgba(2, 250, 35, 0.575);
   box-shadow: 5px 5px 5px 8px rgb(178, 190, 230);
   border-radius: 10px 10px;
@@ -83,7 +83,6 @@ a {
 .meals-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  justify-content: space-between;
 }
 
 .meal {
@@ -129,32 +128,29 @@ a {
 .meal-info {
   display: flex;
   flex-direction: column;
-  justify-items: center;
+  justify-content: center;
   align-items: center;
   width: 100%;
 }
 
-#title-cat {
+#title-cat-img {
   display: flex;
-  flex-direction: column;
-  border-radius: 20px 0 0 20px;
-  background-color: gray;
+  flex-direction: row;
+  border-radius: 100px 0 0 100px;
+  background-color: rgb(218, 224, 224);
+  align-items: center;
+  justify-content: flex-end;
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
 #meal-img {
-  width: 50%;
-  height: 50%;
-}
-
-#title-cat, #how-to-cook {
-  display: flex;
-  flex-direction: column;
-}
-
-#meal-cat {
-  color: #999;
+  width: 640px;
+  height: 480px;
+  padding: 10px 0 10px 10px;
+  margin: 10px 0 10px 10px;
+  /* position: absolute; */
 }
 
 #meal-title {
@@ -162,13 +158,64 @@ a {
   align-self: center;
   font-weight: bold;
   font-size: 32px;
-  padding: 10px;
+  padding: 25px;
   color: #0290ff;
   /* background: whitesmoke; */
   width: 100%;
 }
 
+#meal-cat {
+  text-transform: uppercase;
+  color: #999;
+  padding: 25px;
+}
+
+#how-to-cook {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  margin: 20px;
+}
+
 #how-to-cook h4 {
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 24px;
+  color: rgb(27, 68, 68);
+  padding: 20px;
+}
+
+#instructions {
+  padding: 20px;
+  margin: 20px;
+  color: rgb(27, 68, 68);
+  font-size: 18px;
+  background: rgb(218, 224, 224);
+}
+
+#ingredientsMeasure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#ingredientsWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#ingredientsText{
+  font-size: 24px;
+  color: #0290ff;;
+}
+.ingredients, .measure {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.ingredients span, .measure span {
+  border-bottom: 1px solid rgb(27, 68, 68);
+  padding: 10px;
 }
