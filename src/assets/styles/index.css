@@ -13,6 +13,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 a {
   text-decoration: none;
   color: white;
@@ -25,7 +26,6 @@ a {
   justify-content: center;
   margin: auto;
   padding: 20px;
-  /* background-color: rgb(202, 204, 203); */
   color: #0290ff;
   position: relative;
   width: 100%;
@@ -40,7 +40,6 @@ a {
 
 .areas {
   display: flex;
-  /* flex-direction: column; */
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
@@ -60,7 +59,6 @@ a {
   position: absolute;
   bottom: 0;
   left: 50px;
-  /* background-color: #fff; */
   color: #0290ff;
   width: 100%;
 }
@@ -74,7 +72,6 @@ a {
 #areaMap:hover {
   transform: scale(1.2);
 }
-
 
 .meals-container, .meal-info {
   background-color: rgba(2, 250, 35, 0.575);
@@ -92,16 +89,23 @@ a {
 .meal {
   display: block;
   position: relative;
+  width: 100%;
   padding: 0;
   margin: 0;
 }
+
+.meal img{
+  width: 100%;
+  height: 100%;
+}
+
 #title {
   display: block;
   color: whitesmoke;
   background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 25%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.35) 88.8%, rgba(0,0,0, 0.001) 100%);
   position: absolute;
   bottom: 0;
-  width: 94%;
+  width: 95%;
   height: 50%;
   word-wrap: break-word;
   margin-left: auto;
@@ -110,21 +114,38 @@ a {
   padding: 0 10px;
   text-align: center;
 }
+
 #title h3 {
   padding-top: 25px;
   font-size: 18px;
   font-weight: bold;
 }
+
 .info-container {
   margin: auto;
   padding: 10px;
 }
+
 .meal-info {
   display: flex;
   flex-direction: column;
   justify-items: center;
   align-items: center;
   width: 100%;
+}
+
+#title-cat {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px 0 0 20px;
+  background-color: gray;
+  width: 100%;
+  height: 100%;
+}
+
+#meal-img {
+  width: 50%;
+  height: 50%;
 }
 
 #title-cat, #how-to-cook {
@@ -135,6 +156,7 @@ a {
 #meal-cat {
   color: #999;
 }
+
 #meal-title {
   display: inline-block;
   align-self: center;
@@ -142,7 +164,7 @@ a {
   font-size: 32px;
   padding: 10px;
   color: #0290ff;
-  background: whitesmoke;
+  /* background: whitesmoke; */
   width: 100%;
 }
 

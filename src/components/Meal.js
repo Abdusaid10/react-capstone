@@ -8,18 +8,13 @@ const Meal = ({ meal, clickHandler }) => {
   const handleClick = meal => {
     clickHandler(meal);
   }
-
-  const style = {
-    width: '320px',
-    height: '240px',
-  }
   
   return (
     <div key="meal" className="meal" onClick={() => handleClick(meal)}>
       <div id="title">
         <h3>{meal.strMeal}</h3>
       </div>
-      <img src={meal.strMealThumb} alt={meal.strMeal} style={style} />
+      <img src={meal.strMealThumb} alt={meal.strMeal} />
     </div>
   );
 };

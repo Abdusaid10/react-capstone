@@ -50,7 +50,6 @@ const MealsList = ({ meals, areaFilter, fetchMealsByArea, fetchMealByID, changeA
   
   const handleClickArea = area => {
     changeArea(area);
-    // setCurrentArea(area);
     fetchMealsByArea(area);
   };
 
@@ -58,43 +57,53 @@ const MealsList = ({ meals, areaFilter, fetchMealsByArea, fetchMealByID, changeA
     fetchMealsByArea(areaFilter);
   }, [areaFilter, fetchMealsByArea]);
   
+  const renderAreas = () => (
+    <div className="areas-container">
+      <h3>
+        Select an Area 
+      </h3>
+      <div className="areas">
+        {areasList.map((area, index) => (
+          <Link key={index} to={`/${area}`}>
+            <Area key={index} name={area} clickHandlerArea={(area) => handleClickArea(area)} />
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+
   return (
-    <div className="container">
-      <Router history={customHistory}>
-        <div className="areas-container">
-          <h3>
-            Select an Area 
-          </h3>
-          <div className="area">
-            {areasList.map((area, index) => (
-              <Link key={index} to={`/${area}`}>
-                <Area key={index} name={area} clickHandlerArea={(area) => handleClickArea(area)} />
-              </Link>
-            ))}
-          </div>
-        </div>
-        
+    // <div className="container">
+      <Router history={customHistory}>       
         <Switch>
-          {/* <h2>{areaFilter}</h2> */}
-          
-            <Route exact path={`/${areaFilter}`}>
-              <div className="meals-container">
-                {meals
-                  .map((meal, index) => (
-                    <Link key={index} to={`/${areaFilter}/id=${parseInt(meal.idMeal, 10)}`}>
-                      <Meal key={index} meal={meal} clickHandler={() => handleClick(meal)} />
-                    </Link>
-                    ))
-                }
-              </div>
-            </Route>
-            { fetchMealInfo.map(meal => (
-                <MealInfo key={meal} meal={meal} />
-              ))
-            }
+          <Route exact path="/">
+            {renderAreas()}
+          </Route>          
+          <Route exact path={`/${areaFilter}`}>
+            <div className="meals-container">
+              {meals
+                .map((meal, index) => (
+                  <Link key={index} to={`/${areaFilter}/:${parseInt(meal.idMeal, 10)}`}>
+                    <Meal key={index} meal={meal} clickHandler={() => handleClick(meal)} />
+                  </Link>
+                  ))
+              }
+              <Link to="/"><span>Home</span></Link>
+            </div>
+          </Route>
+          <Route exact path={`/${areaFilter}/:${parseInt(mealSelected, 10)}`}>
+            <div className="info-container">
+              { fetchMealInfo.map(meal => (
+                  <MealInfo key={meal} meal={meal} />
+                ))
+              }
+              <Link to={`/${areaFilter}`}><span>Back</span></Link>
+              <Link to="/"><span>Home</span></Link>
+            </div>
+          </Route>
         </Switch>
       </Router>
-    </div>
+    // </div>
   );
 };
 

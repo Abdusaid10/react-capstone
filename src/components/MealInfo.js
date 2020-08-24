@@ -9,11 +9,16 @@ const MealInfo = ({meal}) => {
   }
   return (
     <div className="meal-info">
-      <h3>{meal.strMeal}</h3>
-      <span>{meal.strCategory}</span>
-      <img src={meal.strMealThumb} alt={meal.strMeal} style={style} />
-      <p>{meal.strInstructions}</p>
-      <iframe title={meal.strMeal} width="420" height="315" src={meal.strYoutube.replace(regex, 'embed')}></iframe>
+      <div id="title-cat">
+        <h3 id="meal-title">{meal.strMeal}</h3>
+        <span id="meal-cat">Category: {meal.strCategory}</span>
+        <img id="meal-img" src={meal.strMealThumb} alt={meal.strMeal} style={style} />
+      </div>
+      <div id="how-to-cook">
+        <h4>How to cook</h4>
+        <p id="instructions">{meal.strInstructions}</p>
+        <iframe title={meal.strMeal} width="420" height="315" src={meal.strYoutube.replace(regex, 'embed')}></iframe>
+      </div>
       <div id="ingredients-measure">
         <div className="ingredients">
           <span>{meal.strIngredient1}</span>
