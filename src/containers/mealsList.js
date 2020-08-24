@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link, Switch, Route, Router } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -41,8 +41,6 @@ const MealsList = ({ meals, areaFilter, fetchMealsByArea, fetchMealByID, changeA
     'Vietnamese',
   ];
   
-  // const [currentArea, setCurrentArea] = useState([]);
-
   const handleClick = meal => {
     selectMeal(meal.idMeal)
     fetchMealByID(parseInt(meal.idMeal, 10));
@@ -52,10 +50,6 @@ const MealsList = ({ meals, areaFilter, fetchMealsByArea, fetchMealByID, changeA
     changeArea(area);
     fetchMealsByArea(area);
   };
-
-  // useEffect(() => {
-  //   fetchMealsByArea(areaFilter);
-  // }, [areaFilter, fetchMealsByArea]);
   
   const renderAreas = () => (
     <div className="areas-container">
@@ -73,7 +67,6 @@ const MealsList = ({ meals, areaFilter, fetchMealsByArea, fetchMealByID, changeA
   );
 
   return (
-    // <div className="container">
       <Router history={customHistory}>       
         <Switch>
           <Route exact path="/">
@@ -105,7 +98,6 @@ const MealsList = ({ meals, areaFilter, fetchMealsByArea, fetchMealByID, changeA
           </Route>
         </Switch>
       </Router>
-    // </div>
   );
 };
 

@@ -28,9 +28,6 @@ const fetchMealsByArea = (area) => dispatch =>{
     })
 }
 
-
-
-
 export {
   fetchRequest,
   fetchSuccess,
