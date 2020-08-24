@@ -6,13 +6,11 @@ const MealInfo = ({meal}) => {
 
 
   const addDash = (objVal) => {
-    if (objVal === '') {
+    if (objVal === '' || objVal === null || objVal === undefined) {
       objVal = '-';
       return objVal;
     }
-    else {
-      return objVal;
-    }
+    return objVal;
   }
 
   return (

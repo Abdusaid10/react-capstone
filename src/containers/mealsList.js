@@ -53,9 +53,9 @@ const MealsList = ({ meals, areaFilter, fetchMealsByArea, fetchMealByID, changeA
     fetchMealsByArea(area);
   };
 
-  useEffect(() => {
-    fetchMealsByArea(areaFilter);
-  }, [areaFilter, fetchMealsByArea]);
+  // useEffect(() => {
+  //   fetchMealsByArea(areaFilter);
+  // }, [areaFilter, fetchMealsByArea]);
   
   const renderAreas = () => (
     <div className="areas-container">
@@ -80,6 +80,7 @@ const MealsList = ({ meals, areaFilter, fetchMealsByArea, fetchMealByID, changeA
             {renderAreas()}
           </Route>          
           <Route exact path={`/${areaFilter}`}>
+            <Link to="/"><span id="home">Home</span></Link>
             <div className="meals-container">
               {meals
                 .map((meal, index) => (
@@ -88,17 +89,18 @@ const MealsList = ({ meals, areaFilter, fetchMealsByArea, fetchMealByID, changeA
                   </Link>
                   ))
               }
-              <Link to="/"><span>Home</span></Link>
             </div>
           </Route>
           <Route exact path={`/${areaFilter}/:${parseInt(mealSelected, 10)}`}>
             <div className="info-container">
+              <Link to={`/${areaFilter}`}><span id="back">Back</span></Link>
+              <Link to="/"><span id="home">Home</span></Link>
               { fetchMealInfo.map(meal => (
                   <MealInfo key={meal} meal={meal} />
                 ))
               }
-              <Link to={`/${areaFilter}`}><span>Back</span></Link>
-              <Link to="/"><span>Home</span></Link>
+              <Link to={`/${areaFilter}`}><span id="back">Back</span></Link>
+              <Link to="/"><span id="home">Home</span></Link>
             </div>
           </Route>
         </Switch>
