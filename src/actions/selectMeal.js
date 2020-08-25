@@ -1,5 +1,7 @@
 import axios from 'axios';
-import { SELECT_MEAL, FETCH_MEAL_REQUEST, FETCH_MEAL_SUCCESS, FETCH_MEAL_FAILURE, base_url } from './types';
+import {
+  SELECT_MEAL, FETCH_MEAL_REQUEST, FETCH_MEAL_SUCCESS, FETCH_MEAL_FAILURE, baseURL,
+} from './types';
 
 const fetchRequest = () => ({
   type: FETCH_MEAL_REQUEST,
@@ -21,18 +23,16 @@ const selectMeal = id => ({
 });
 
 const fetchMealByID = id => dispatch => {
-  const url = `${base_url}lookup.php?i=${id}`;
+  const url = `${baseURL}lookup.php?i=${id}`;
   dispatch(fetchRequest());
   axios.get(url)
-    .then((response) => {
-      console.log("response meal info",response.data.meals);
+    .then(response => {
       dispatch(fetchSuccess(response.data.meals));
     })
-    .catch( (error) => {
+    .catch(error => {
       dispatch(fetchFailure(error.message));
-    })
-}
-
+    });
+};
 
 export {
   selectMeal,

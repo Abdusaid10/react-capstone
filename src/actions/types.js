@@ -6,7 +6,7 @@ const SELECT_MEAL = 'SELECT_MEAL';
 const FETCH_MEAL_REQUEST = 'FETCH_MEAL_REQUEST';
 const FETCH_MEAL_SUCCESS = 'FETCH_MEAL_SUCCESS';
 const FETCH_MEAL_FAILURE = 'FETCH_MEAL_FAILURE';
-const base_url = 'https://www.themealdb.com/api/json/v1/1/';
+const baseURL = 'https://www.themealdb.com/api/json/v1/1/';
 
 export {
   FETCH_REQUEST,
@@ -17,5 +17,5 @@ export {
   FETCH_MEAL_REQUEST,
   FETCH_MEAL_SUCCESS,
   FETCH_MEAL_FAILURE,
-  base_url,
+  baseURL,
 };

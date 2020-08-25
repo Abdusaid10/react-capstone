@@ -1,4 +1,4 @@
-import { CHANGE_AREA } from "../actions/types";
+import { CHANGE_AREA } from '../actions/types';
 
 const changeAreaReducer = (state = '', action) => {
   switch (action.type) {
@@ -7,6 +7,6 @@ const changeAreaReducer = (state = '', action) => {
     default:
       return state;
   }
-}
+};
 
 export default changeAreaReducer;

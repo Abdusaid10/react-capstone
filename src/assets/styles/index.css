@@ -1,20 +1,36 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'Roboto',
+    'Oxygen',
+    'Ubuntu',
+    'Cantarell',
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
   height: 100%;
 }
+
 div {
   margin: 0;
   padding: 0;
 }
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family:
+    source-code-pro,
+    Menlo,
+    Monaco,
+    Consolas,
+    'Courier New',
     monospace;
 }
 
@@ -23,7 +39,8 @@ a {
   color: red;
 }
 
-#home, #back  {
+#home,
+#back {
   padding: 10px;
   margin: 5px;
 }
@@ -40,7 +57,7 @@ a {
   width: 100%;
 }
 
-.areas-container h3{
+.areas-container h3 {
   margin: 10px auto;
   padding: 10px;
   font-weight: bold;
@@ -62,8 +79,6 @@ a {
 
 .area span {
   display: block;
-  /* max-width: 50vmin;
-  min-width: 25vmax; */
   padding: 25px;
   position: absolute;
   bottom: 0;
@@ -75,7 +90,7 @@ a {
 #areaMap {
   width: 320px;
   height: 240px;
-  transition: transform .2s;
+  transition: transform 0.2s;
 }
 
 #areaMap:hover {
@@ -83,15 +98,13 @@ a {
 }
 
 .meals-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   background-color: rgba(2, 250, 35, 0.575);
   box-shadow: 5px 5px 5px 8px rgb(178, 190, 230);
   border-radius: 10px 10px;
   margin: auto;
   padding: 10px;
-}
-.meals-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .meal {
@@ -102,7 +115,7 @@ a {
   margin: 0;
 }
 
-.meal img{
+.meal img {
   width: 100%;
   height: 100%;
 }
@@ -110,7 +123,7 @@ a {
 #title {
   display: block;
   color: whitesmoke;
-  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 25%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.35) 88.8%, rgba(0,0,0, 0.001) 100%);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 25%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.35) 88.8%, rgba(0, 0, 0, 0.001) 100%);
   position: absolute;
   bottom: 0;
   width: 95%;
@@ -159,7 +172,6 @@ a {
   height: 480px;
   padding: 10px 0 10px 10px;
   margin: 10px 0 10px 10px;
-  /* position: absolute; */
 }
 
 #meal-title {
@@ -169,7 +181,6 @@ a {
   font-size: 32px;
   padding: 25px;
   color: #0290ff;
-  /* background: whitesmoke; */
   width: 100%;
 }
 
@@ -188,7 +199,10 @@ a {
 }
 
 #how-to-cook h4 {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
   font-weight: bold;
   font-size: 24px;
   color: rgb(27, 68, 68);
@@ -214,17 +228,20 @@ a {
   grid-template-columns: 1fr 1fr;
 }
 
-#ingredientsText{
+#ingredientsText {
   font-size: 24px;
-  color: #0290ff;;
+  color: #0290ff;
 }
-.ingredients, .measure {
+
+.ingredients,
+.measure {
   display: flex;
   flex-direction: column;
   padding: 10px;
 }
 
-.ingredients span, .measure span {
+.ingredients span,
+.measure span {
   border-bottom: 1px solid rgb(27, 68, 68);
   padding: 10px;
 }

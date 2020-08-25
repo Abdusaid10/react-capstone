@@ -1,4 +1,4 @@
-import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAILURE } from "../actions/types";
+import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAILURE } from '../actions/types';
 
 const initialState = {
   loading: false,
@@ -29,6 +29,6 @@ const fetchReducer = (state = initialState, action) => {
     default:
       return state;
   }
-}
+};
 
 export default fetchReducer;

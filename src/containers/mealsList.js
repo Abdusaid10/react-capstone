@@ -1,18 +1,33 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable react/no-unused-prop-types */
+/* eslint-disable react/require-default-props */
 import React from 'react';
-import { Link, Switch, Route, Router } from 'react-router-dom';
+import {
+  Link, Switch, Route, Router,
+} from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { createBrowserHistory } from 'history';
 import Meal from '../components/Meal';
 import Area from '../components/Area';
 import { fetchMealsByArea } from '../actions/index';
 import changeArea from '../actions/filterAction';
 import { selectMeal, fetchMealByID } from '../actions/selectMeal';
 import MealInfo from '../components/MealInfo';
-import {createBrowserHistory} from 'history';
 
 export const customHistory = createBrowserHistory();
 
-const MealsList = ({ meals, areaFilter, fetchMealsByArea, fetchMealByID, changeArea, selectMeal, mealSelected, fetchMealInfo }) => {
+const MealsList = ({
+  meals,
+  areaFilter,
+  fetchMealsByArea,
+  fetchMealByID,
+  changeArea,
+  selectMeal,
+  // eslint-disable-next-line react/prop-types
+  mealSelected,
+  fetchMealInfo,
+}) => {
   const areasList = [
     'American',
     'British',
@@ -40,26 +55,26 @@ const MealsList = ({ meals, areaFilter, fetchMealsByArea, fetchMealByID, changeA
     'Unknown',
     'Vietnamese',
   ];
-  
+
   const handleClick = meal => {
-    selectMeal(meal.idMeal)
+    selectMeal(meal.idMeal);
     fetchMealByID(parseInt(meal.idMeal, 10));
   };
-  
+
   const handleClickArea = area => {
     changeArea(area);
     fetchMealsByArea(area);
   };
-  
+
   const renderAreas = () => (
     <div className="areas-container">
       <h3>
-        Select an Area 
+        Select an Area
       </h3>
       <div className="areas">
         {areasList.map((area, index) => (
           <Link key={index} to={`/${area}`}>
-            <Area key={index} name={area} clickHandlerArea={(area) => handleClickArea(area)} />
+            <Area key={index} name={area} clickHandlerArea={area => handleClickArea(area)} />
           </Link>
         ))}
       </div>
@@ -67,37 +82,35 @@ const MealsList = ({ meals, areaFilter, fetchMealsByArea, fetchMealByID, changeA
   );
 
   return (
-      <Router history={customHistory}>       
-        <Switch>
-          <Route exact path="/">
-            {renderAreas()}
-          </Route>          
-          <Route exact path={`/${areaFilter}`}>
+    <Router history={customHistory}>
+      <Switch>
+        <Route exact path="/">
+          {renderAreas()}
+        </Route>
+        <Route exact path={`/${areaFilter}`}>
+          <Link to="/"><span id="home">Home</span></Link>
+          <div className="meals-container">
+            {meals
+              .map((meal, index) => (
+                <Link key={index} to={`/${areaFilter}/:${parseInt(meal.idMeal, 10)}`}>
+                  <Meal key={index} meal={meal} clickHandler={() => handleClick(meal)} />
+                </Link>
+              ))}
+          </div>
+        </Route>
+        <Route exact path={`/${areaFilter}/:${parseInt(mealSelected, 10)}`}>
+          <div className="info-container">
+            <Link to={`/${areaFilter}`}><span id="back">Back</span></Link>
             <Link to="/"><span id="home">Home</span></Link>
-            <div className="meals-container">
-              {meals
-                .map((meal, index) => (
-                  <Link key={index} to={`/${areaFilter}/:${parseInt(meal.idMeal, 10)}`}>
-                    <Meal key={index} meal={meal} clickHandler={() => handleClick(meal)} />
-                  </Link>
-                  ))
-              }
-            </div>
-          </Route>
-          <Route exact path={`/${areaFilter}/:${parseInt(mealSelected, 10)}`}>
-            <div className="info-container">
-              <Link to={`/${areaFilter}`}><span id="back">Back</span></Link>
-              <Link to="/"><span id="home">Home</span></Link>
-              { fetchMealInfo.map(meal => (
-                  <MealInfo key={meal} meal={meal} />
-                ))
-              }
-              <Link to={`/${areaFilter}`}><span id="back">Back</span></Link>
-              <Link to="/"><span id="home">Home</span></Link>
-            </div>
-          </Route>
-        </Switch>
-      </Router>
+            { fetchMealInfo.map(meal => (
+              <MealInfo key={meal} meal={meal} />
+            ))}
+            <Link to={`/${areaFilter}`}><span id="back">Back</span></Link>
+            <Link to="/"><span id="home">Home</span></Link>
+          </div>
+        </Route>
+      </Switch>
+    </Router>
   );
 };
 
@@ -110,11 +123,10 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   changeArea: area => dispatch(changeArea(area)),
-  fetchMealsByArea: (area) => dispatch(fetchMealsByArea(area)),
-  fetchMealByID: (id) => dispatch(fetchMealByID(id)),
-  selectMeal: (id) => dispatch(selectMeal(id)),
+  fetchMealsByArea: area => dispatch(fetchMealsByArea(area)),
+  fetchMealByID: id => dispatch(fetchMealByID(id)),
+  selectMeal: id => dispatch(selectMeal(id)),
 });
-
 
 MealsList.propTypes = {
   meals: PropTypes.arrayOf(
@@ -173,11 +185,12 @@ MealsList.propTypes = {
       strMeasure18: PropTypes.string,
       strMeasure19: PropTypes.string,
       strMeasure20: PropTypes.string,
-    })
+    }),
   ).isRequired,
   loading: PropTypes.bool,
   error: PropTypes.string,
   area: PropTypes.string,
+  areaFilter: PropTypes.string,
   changeArea: PropTypes.func,
   fetchMealsByArea: PropTypes.func.isRequired,
   fetchMealByID: PropTypes.func.isRequired,

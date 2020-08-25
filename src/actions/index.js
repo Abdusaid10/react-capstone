@@ -1,5 +1,7 @@
 import axios from 'axios';
-import { FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAILURE, base_url } from "./types";
+import {
+  FETCH_REQUEST, FETCH_SUCCESS, FETCH_FAILURE, baseURL,
+} from './types';
 
 const fetchRequest = () => ({
   type: FETCH_REQUEST,
@@ -15,22 +17,22 @@ const fetchFailure = error => ({
   payload: error,
 });
 
-const fetchMealsByArea = (area) => dispatch =>{
-  const url = `${base_url}filter.php?a=${area}`;
- 
+const fetchMealsByArea = area => dispatch => {
+  const url = `${baseURL}filter.php?a=${area}`;
+
   dispatch(fetchRequest());
   axios.get(url)
-    .then((response) => {
+    .then(response => {
       dispatch(fetchSuccess(response.data.meals));
     })
-    .catch( (error) => {
+    .catch(error => {
       dispatch(fetchFailure(error.message));
-    })
-}
+    });
+};
 
 export {
   fetchRequest,
   fetchSuccess,
   fetchFailure,
   fetchMealsByArea,
-}
+};

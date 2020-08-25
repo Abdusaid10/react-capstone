@@ -1,4 +1,4 @@
-import { FETCH_MEAL_REQUEST, FETCH_MEAL_SUCCESS, FETCH_MEAL_FAILURE } from "../actions/types";
+import { FETCH_MEAL_REQUEST, FETCH_MEAL_SUCCESS, FETCH_MEAL_FAILURE } from '../actions/types';
 
 const initialState = {
   loading: false,
@@ -14,7 +14,6 @@ const fetchMealInfo = (state = initialState, action) => {
         loading: true,
       };
     case FETCH_MEAL_SUCCESS:
-      console.log("payload meal",action.payload)
       return {
         ...state,
         loading: false,
@@ -30,6 +29,6 @@ const fetchMealInfo = (state = initialState, action) => {
     default:
       return state;
   }
-}
+};
 
 export default fetchMealInfo;
