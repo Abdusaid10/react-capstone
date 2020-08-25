@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Meal from '../components/Meal';
 import Area from '../components/Area';
 import { fetchMealsByArea } from '../actions/index';
-import { changeArea } from '../actions/filterAction';
+import changeArea from '../actions/filterAction';
 import { selectMeal, fetchMealByID } from '../actions/selectMeal';
 import MealInfo from '../components/MealInfo';
 import {createBrowserHistory} from 'history';
