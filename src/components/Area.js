@@ -90,10 +90,10 @@ const Area = ({ name, clickHandlerArea }) => {
   };
 
   return (
-    <button type="button" className="area" onClick={() => handleClickArea(name)}>
-      <img id="areaMap" src={`${imgSrc(name)}`} alt={`${name}`} />
+    <div className="area">
+      <img id="areaMap" src={`${imgSrc(name)}`} alt={`${name}`} onClick={() => handleClickArea(name)} />
       <span key={name} name={name}>{name}</span>
-    </button>
+    </div>
   );
 };
 
