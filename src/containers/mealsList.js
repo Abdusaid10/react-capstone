@@ -100,8 +100,8 @@ const MealsList = ({
         </Route>
         <Route exact path={`/${areaFilter}/:${parseInt(mealSelected, 10)}`}>
           <div className="info-container">
-            <Link to={`/${areaFilter}`}><span id="back">Back</span></Link>
             <Link to="/"><span id="home">Home</span></Link>
+            <Link to={`/${areaFilter}`}><span id="back">Back</span></Link>
             { fetchMealInfo.map(meal => (
               <MealInfo key={meal} meal={meal} />
             ))}
