@@ -90,12 +90,12 @@ a {
 #areaMap {
   width: 320px;
   height: 240px;
-  /* transition: transform 0.2s; */
+  transition: transform 0.2s;
 }
 
-/* #areaMap:hover {
+#areaMap:hover {
   transform: scale(1.2);
-} */
+}
 
 .meals-container {
   display: grid;

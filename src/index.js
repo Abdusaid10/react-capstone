@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import store from './reducers/store';
 import './assets/styles/index.css';
 import App from './components/App';
-import * as serviceWorker from './serviceWorker';
 import './assets/styles/reset.css';
 
 ReactDOM.render(
@@ -13,5 +12,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root'),
 );
-
-serviceWorker.unregister();

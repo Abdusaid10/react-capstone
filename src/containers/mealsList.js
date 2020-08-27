@@ -3,11 +3,11 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import {
-  Link, Switch, Route, Router,
+  Link, Switch, Route, BrowserRouter as Router,
 } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { createBrowserHistory } from 'history';
+// import { createBrowserHistory } from 'history';
 import Meal from '../components/Meal';
 import Area from '../components/Area';
 import { fetchMealsByArea } from '../actions/index';
@@ -15,7 +15,7 @@ import changeArea from '../actions/filterAction';
 import { selectMeal, fetchMealByID } from '../actions/selectMeal';
 import MealInfo from '../components/MealInfo';
 
-export const customHistory = createBrowserHistory();
+// export const customHistory = createBrowserHistory();
 
 const MealsList = ({
   meals,
@@ -66,26 +66,22 @@ const MealsList = ({
     fetchMealsByArea(area);
   };
 
-  const renderAreas = () => (
-    <div className="areas-container">
-      <h3>
-        Select an Area
-      </h3>
-      <div className="areas">
-        {areasList.map((area, index) => (
-          <Link key={index} to={`/${area}`}>
-            <Area key={index} name={area} clickHandlerArea={area => handleClickArea(area)} />
-          </Link>
-        ))}
-      </div>
-    </div>
-  );
-
   return (
-    <Router history={customHistory}>
+    <Router>
       <Switch>
         <Route exact path="/">
-          {renderAreas()}
+          <div className="areas-container">
+            <h3>
+              Select an Area
+            </h3>
+            <div className="areas">
+              {areasList.map((area, index) => (
+                <Link key={index} to={`/${area}`}>
+                  <Area key={index} name={area} clickHandlerArea={() => handleClickArea(area)} />
+                </Link>
+              ))}
+            </div>
+          </div>
         </Route>
         <Route exact path={`/${areaFilter}`}>
           <Link to="/"><span id="home">Home</span></Link>
