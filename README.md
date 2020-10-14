@@ -1,5 +1,5 @@
 # react-capstone
-
+It is a single-page application, that is browsable. It contains a list of items that can be filtered and accessed to the details of an item. On the home page, there is a list of areas that are available in the [API](https://www.themealdb.com/api.php) that you can select to see the meals for that area. From there you can choose a meal you want and find the instructions on how to cook that meal.
 ### Technologies Used
 
 - Node.js
@@ -13,9 +13,18 @@
 - ESlint
 - Heroku
 
-### Live version
+## Live version
 
 A live version is hosted on Heroku.
+- [**Meal Recipes**](https://react-meal-recipes.herokuapp.com/)
+
+## Screenshots
+
+<img src="./screenshots/main.png">
+
+<img src="./screenshots/meals.png">
+
+<img src="./screenshots/mealInfo.png">
 
 ## Run Locally
 To get a local copy up and running follow these simple example steps.
@@ -64,9 +73,9 @@ The build is minified and the filenames include the hashes.<br />
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/macnick/react-bookstore/issues).
+Feel free to check the [issues page](https://github.com/Abdusaid10/react-capstone/issues).
 
-1. Fork it (https://github.com/macnick/react-capstone/fork)
+1. Fork it (https://github.com/Abdusaid10/react-capstone/fork)
 2. Create your feature branch (git checkout -b my-new-feature)
 3. Commit your changes (git commit -am 'Add some feature')
 4. Push to the branch (git push origin my-new-feature)

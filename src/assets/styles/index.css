@@ -1,0 +1,247 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'Roboto',
+    'Oxygen',
+    'Ubuntu',
+    'Cantarell',
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  height: 100%;
+}
+
+div {
+  margin: 0;
+  padding: 0;
+}
+
+code {
+  font-family:
+    source-code-pro,
+    Menlo,
+    Monaco,
+    Consolas,
+    'Courier New',
+    monospace;
+}
+
+a {
+  text-decoration: none;
+  color: red;
+}
+
+#home,
+#back {
+  padding: 10px;
+  margin: 5px;
+}
+
+.areas-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  padding: 20px;
+  color: #0290ff;
+  position: relative;
+  width: 100%;
+}
+
+.areas-container h3 {
+  margin: 10px auto;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.areas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.area {
+  position: relative;
+  padding: 10px;
+  margin: 10px;
+}
+
+.area span {
+  display: block;
+  padding: 25px;
+  position: absolute;
+  bottom: 0;
+  left: 50px;
+  color: #0290ff;
+  width: 100%;
+}
+
+#areaMap {
+  width: 320px;
+  height: 240px;
+  transition: transform 0.2s;
+}
+
+#areaMap:hover {
+  transform: scale(1.2);
+}
+
+.meals-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: rgba(2, 250, 35, 0.575);
+  box-shadow: 5px 5px 5px 8px rgb(178, 190, 230);
+  border-radius: 10px 10px;
+  margin: auto;
+  padding: 10px;
+}
+
+.meal {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.meal img {
+  width: 100%;
+  height: 100%;
+}
+
+#title {
+  display: block;
+  color: whitesmoke;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.8) 25%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.35) 88.8%, rgba(0, 0, 0, 0.001) 100%);
+  position: absolute;
+  bottom: 0;
+  width: 95%;
+  height: 50%;
+  word-wrap: break-word;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -50px;
+  padding: 0 10px;
+  text-align: center;
+}
+
+#title h3 {
+  padding-top: 25px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.info-container {
+  margin: auto;
+  padding: 10px;
+}
+
+.meal-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#title-cat-img {
+  display: flex;
+  flex-direction: row;
+  border-radius: 100px 0 0 100px;
+  background-color: rgb(218, 224, 224);
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#meal-img {
+  width: 640px;
+  height: 480px;
+  padding: 10px 0 10px 10px;
+  margin: 10px 0 10px 10px;
+}
+
+#meal-title {
+  display: inline-block;
+  align-self: center;
+  font-weight: bold;
+  font-size: 32px;
+  padding: 25px;
+  color: #0290ff;
+  width: 100%;
+}
+
+#meal-cat {
+  text-transform: uppercase;
+  color: #999;
+  padding: 25px;
+}
+
+#how-to-cook {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  margin: 20px;
+}
+
+#how-to-cook h4 {
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  color: rgb(27, 68, 68);
+  padding: 20px;
+}
+
+#instructions {
+  padding: 20px;
+  margin: 20px;
+  color: rgb(27, 68, 68);
+  font-size: 18px;
+  background: rgb(218, 224, 224);
+}
+
+#ingredientsMeasure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#ingredientsWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#ingredientsText {
+  font-size: 24px;
+  color: #0290ff;
+}
+
+.ingredients,
+.measure {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.ingredients span,
+.measure span {
+  border-bottom: 1px solid rgb(27, 68, 68);
+  padding: 10px;
+}
